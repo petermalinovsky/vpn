@@ -15,6 +15,8 @@ The hostname is used by both Wireguard and Dynu, whereas the username and passwo
 
 I use Portainer to run my Docker stacks, so I define my environment variables in the UI, if you're running directly from the terminal you can create a `.env` file with the values.
 
+When exposing ports to the Internet with your home router, you only want to expose `51820` you DO NOT want to expose `51821`. The second port is the admin interface, which would allow anyone on the internet to issue themselves a certificate to your VPN.
+
 ## Wireguard
 The Wireguard container hosts the VPN server and comes form `wg-easy` which exposes ports `51820` for UDP traffic and `51821` for TCP traffic. I have it set up to use `192.168.0.3` as a local DNS resolver which I run AdGuard on, if you don't have a local DNS resolver this should be commented out.
 
